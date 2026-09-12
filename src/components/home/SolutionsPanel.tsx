@@ -12,7 +12,7 @@ export function SolutionsPanel() {
     <section className="section-solutions">
       <div className="container">
         <div className="solutions-head">
-          <p className="eyebrow">What we do</p>
+          <p className="eyebrow on-dark">What we do</p>
           <h2>
             Your challenges.{" "}
             <span className="solutions-mark">Our solutions.</span>

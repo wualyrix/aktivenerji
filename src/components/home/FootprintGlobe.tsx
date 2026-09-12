@@ -30,12 +30,12 @@ export function FootprintGlobe() {
     if (!el) return;
 
     const width = el.clientWidth || 800;
-    const height = Math.min(560, Math.max(420, Math.round(window.innerHeight * 0.55)));
+    const height = Math.min(520, Math.max(400, Math.round(window.innerHeight * 0.5)));
 
     const globe: GlobeInstance = new Globe(el)
       .width(width)
       .height(height)
-      .backgroundColor("#061a33")
+      .backgroundColor("#0d4a86")
       .globeImageUrl(
         "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg",
       )
@@ -43,8 +43,8 @@ export function FootprintGlobe() {
         "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png",
       )
       .showAtmosphere(true)
-      .atmosphereColor("#7eb6e8")
-      .atmosphereAltitude(0.18)
+      .atmosphereColor("#9ec9ef")
+      .atmosphereAltitude(0.16)
       .pointsData(offices)
       .pointLat("lat")
       .pointLng("lng")
@@ -73,15 +73,21 @@ export function FootprintGlobe() {
     const controls = globe.controls();
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.55;
-    controls.enableZoom = true;
-    controls.minDistance = 140;
-    controls.maxDistance = 420;
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.enableDamping = true;
+
+    // Let page scroll with mouse wheel / trackpad over the globe.
+    const passWheel = (event: WheelEvent) => {
+      event.stopImmediatePropagation();
+    };
+    el.addEventListener("wheel", passWheel, { capture: true, passive: true });
 
     const onResize = () => {
       if (!containerRef.current) return;
       const nextHeight = Math.min(
-        560,
-        Math.max(420, Math.round(window.innerHeight * 0.55)),
+        520,
+        Math.max(400, Math.round(window.innerHeight * 0.5)),
       );
       globe.width(containerRef.current.clientWidth).height(nextHeight);
     };
@@ -89,6 +95,7 @@ export function FootprintGlobe() {
 
     return () => {
       window.removeEventListener("resize", onResize);
+      el.removeEventListener("wheel", passWheel, true);
       controls.dispose();
       el.replaceChildren();
     };
