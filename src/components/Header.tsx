@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { nav } from "@/data/site";
+import { asset } from "@/lib/paths";
 
 export function Header() {
   const pathname = usePathname();
@@ -14,13 +14,7 @@ export function Header() {
     <header className="site-header">
       <div className="container header-bar">
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
-          <Image
-            src="/logo.png"
-            alt="Aktiv Enerji"
-            width={160}
-            height={64}
-            priority
-          />
+          <img src={asset("/logo.png")} alt="Aktiv Enerji" width={160} height={64} />
         </Link>
 
         <nav className={`nav${open ? " open" : ""}`} aria-label="Primary">

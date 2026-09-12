@@ -1,19 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { clients, projects, services, site } from "@/data/site";
+import { asset } from "@/lib/paths";
 
 export default function HomePage() {
   return (
     <>
       <section className="home-hero">
         <div className="home-hero__media">
-          <Image
-            src="/hero.jpg"
+          <img
+            src={asset("/hero.jpg")}
             alt="Renewable energy landscape at sunrise"
-            fill
-            priority
-            sizes="100vw"
           />
         </div>
         <div className="container home-hero__content">
