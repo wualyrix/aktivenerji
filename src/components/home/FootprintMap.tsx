@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { ClientErrorBoundary } from "@/components/ClientErrorBoundary";
 
 const FootprintGlobe = dynamic(
   () => import("./FootprintGlobe").then((mod) => mod.FootprintGlobe),
@@ -24,16 +23,7 @@ export function FootprintMap() {
       </div>
 
       <div className="footprint__stage">
-        <ClientErrorBoundary
-          fallback={
-            <div className="footprint__map footprint__map--fallback">
-              <p>Poland · Warsaw</p>
-              <p>Azerbaijan · Baku</p>
-            </div>
-          }
-        >
-          <FootprintGlobe />
-        </ClientErrorBoundary>
+        <FootprintGlobe />
         <ul className="footprint__legend container">
           <li>
             <span className="footprint__dot" />
