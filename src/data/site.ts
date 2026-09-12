@@ -219,7 +219,7 @@ export const clients = [
   "Ferrari Center",
   "Port Baku Mall",
   "ASG Aviation",
-  "Rabitəbank",
+  "Rabitebank",
   "Technol",
 ];
 

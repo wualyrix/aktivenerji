@@ -799,6 +799,18 @@ p {
   font-weight: 600;
 }
 
+.footprint__map--fallback {
+  display: grid;
+  place-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(160deg, #0e5aa8, #0a3f78);
+}
+
 .footprint__map canvas {
   display: block;
   width: 100% !important;

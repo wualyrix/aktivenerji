@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { clients, projects } from "@/data/site";
 import { asset } from "@/lib/paths";
+import { ClientErrorBoundary } from "@/components/ClientErrorBoundary";
 import { FootprintMap } from "./FootprintMap";
 import { ScrollRevealIntro } from "./ScrollRevealIntro";
 import { SolutionsPanel } from "./SolutionsPanel";
@@ -33,7 +34,25 @@ export function HomeExperience() {
         </div>
       </section>
 
-      <ScrollRevealIntro />
+      <ClientErrorBoundary
+        fallback={
+          <section className="home-intro">
+            <div className="container home-intro__inner">
+              <h2 className="home-intro__text">
+                As demand for reliable power grows, Aktiv Enerji helps you stay
+                ahead. From Poland and Azerbaijan, we design, build, test and
+                maintain the critical electrical infrastructure behind industry,
+                commercial sites and utilities.
+              </h2>
+              <Link href="/about" className="btn btn-blue">
+                Who we are
+              </Link>
+            </div>
+          </section>
+        }
+      >
+        <ScrollRevealIntro />
+      </ClientErrorBoundary>
 
       <SolutionsPanel />
 
