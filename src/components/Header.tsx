@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { nav } from "@/data/site";
 import { asset } from "@/lib/paths";
-import { SocialIcons } from "./SocialIcons";
 
 export function Header() {
   const pathname = usePathname();
@@ -32,7 +31,6 @@ export function Header() {
         </nav>
 
         <div className="header-cta">
-          <SocialIcons tone="dark" className="header-social" />
           <Link href="/services" className="btn btn-ghost-dark">
             What we do
           </Link>
