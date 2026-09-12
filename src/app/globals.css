@@ -710,30 +710,25 @@ p {
   min-height: 420px;
   border-radius: 18px;
   overflow: hidden;
-  background: #062847;
+  background: #083566;
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
 }
 
-.footprint__map .maplibregl-popup-content {
-  background: var(--blue-deep);
-  color: #fff;
-  border-radius: 10px;
-  padding: 0.75rem 0.9rem;
-  box-shadow: var(--shadow);
-  font-family: var(--font);
+.footprint__map--loading {
+  display: grid;
+  place-items: center;
 }
 
-.footprint__map .maplibregl-popup-content strong {
-  font-family: var(--display);
-}
-
-.footprint__map .maplibregl-popup-tip {
-  border-top-color: var(--blue-deep);
-}
-
-.footprint__map .maplibregl-ctrl-attrib {
-  background: rgba(6, 40, 71, 0.7);
+.footprint__map--loading::after {
+  content: "Loading globe…";
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.footprint__map canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .footprint__legend {

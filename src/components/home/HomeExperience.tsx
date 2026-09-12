@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { clients, projects, site } from "@/data/site";
+import { clients, projects } from "@/data/site";
 import { asset } from "@/lib/paths";
 import { FootprintMap } from "./FootprintMap";
 import { ScrollRevealIntro } from "./ScrollRevealIntro";
@@ -34,19 +34,6 @@ export function HomeExperience() {
       </section>
 
       <ScrollRevealIntro />
-
-      <section className="section home-stats">
-        <div className="container">
-          <div className="home-intro__stats">
-            {site.stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="metric">{stat.value}</div>
-                <span>{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <SolutionsPanel />
 
