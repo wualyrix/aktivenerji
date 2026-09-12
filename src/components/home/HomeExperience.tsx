@@ -1,25 +1,28 @@
 import Link from "next/link";
-import { site } from "@/data/site";
+import { clients, projects, site } from "@/data/site";
 import { asset } from "@/lib/paths";
 import { FootprintMap } from "./FootprintMap";
 import { SolutionsPanel } from "./SolutionsPanel";
 
 export function HomeExperience() {
   return (
-    <div className="home-stack">
-      {/* Layer 1 — stays behind */}
-      <section className="stack-layer stack-layer--1 stack-hero">
-        <div className="stack-hero__media">
+    <>
+      <section className="home-hero">
+        <div className="home-hero__media">
           <img
             src={asset("/hero.jpg")}
             alt="Renewable energy landscape at sunrise"
           />
         </div>
-        <div className="container stack-hero__content">
+        <div className="container home-hero__content">
           <p className="eyebrow on-dark">Local teams. Regional reach.</p>
-          <h1>{site.tagline}</h1>
+          <h1>
+            Electrical Infrastructure.
+            <br />
+            Built With You.
+          </h1>
           <div className="actions">
-            <Link href="/services" className="btn btn-orange">
+            <Link href="/services" className="btn btn-white">
               What we do
             </Link>
             <Link href="/contact" className="btn btn-ghost">
@@ -29,20 +32,15 @@ export function HomeExperience() {
         </div>
       </section>
 
-      {/* Layer 2 — covers hero */}
-      <section className="stack-layer stack-layer--2 stack-intro">
-        <div className="container stack-intro__inner">
-          <p className="eyebrow">Aktiv Enerji</p>
+      <section className="section home-intro">
+        <div className="container">
           <h2>
-            We design, build, test and maintain critical electrical systems —
-            from high-voltage networks to laboratory diagnostics.
+            As demand for reliable power grows, Aktiv Enerji helps you stay
+            ahead. From Poland and Azerbaijan, we design, build, test and
+            maintain the critical electrical infrastructure behind industry,
+            commercial sites and utilities.
           </h2>
-          <p className="lead">
-            Industrial, commercial and utility partners trust us to deliver
-            infrastructure they can hand over with confidence. Two centers.
-            One standard of execution.
-          </p>
-          <div className="stack-intro__stats">
+          <div className="home-intro__stats">
             {site.stats.map((stat) => (
               <div key={stat.label}>
                 <div className="metric">{stat.value}</div>
@@ -53,39 +51,84 @@ export function HomeExperience() {
         </div>
       </section>
 
-      {/* Layer 3 */}
-      <section className="stack-layer stack-layer--3 stack-solutions">
+      <SolutionsPanel />
+
+      <section className="section section-soft">
         <div className="container">
-          <SolutionsPanel />
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Projects</p>
+              <h2>Work we deliver together.</h2>
+            </div>
+            <Link href="/projects" className="btn btn-ghost-dark">
+              View all projects
+            </Link>
+          </div>
+
+          <div className="project-stack">
+            {projects.slice(0, 3).map((project, index) => (
+              <article
+                className="project-stack__card"
+                key={project.title}
+                style={{ ["--i" as string]: index }}
+              >
+                <div className="tags">
+                  <span className="tag">{project.location}</span>
+                  <span className="tag">{project.solution}</span>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+                {project.metric ? (
+                  <div className="project-stack__metric">
+                    <div className="metric">{project.metric.value}</div>
+                    <span>{project.metric.label}</span>
+                  </div>
+                ) : null}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Layer 4 — footprint / world map */}
-      <section className="stack-layer stack-layer--4 stack-footprint">
+      <section className="section-footprint">
         <div className="container">
           <FootprintMap />
         </div>
       </section>
 
-      {/* Layer 5 — CTA with fade */}
-      <section className="stack-layer stack-layer--5 stack-cta">
-        <div className="stack-cta__fade" aria-hidden="true" />
-        <div className="container stack-cta__inner">
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Clients</p>
+              <h2>Trusted across energy, telecom and retail.</h2>
+            </div>
+          </div>
+          <div className="clients">
+            {clients.map((client) => (
+              <span className="client-pill" key={client}>
+                {client}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-cta">
+        <div className="home-cta__fade" aria-hidden="true" />
+        <div className="container home-cta__inner">
+          <p className="eyebrow on-dark">The work starts with a conversation</p>
           <h2>Take on your next electrical infrastructure challenge.</h2>
-          <p>
-            Tell us about the site, the voltage, the deadline — we&apos;ll bring
-            the team.
-          </p>
           <div className="actions">
             <Link href="/contact" className="btn btn-orange">
               Work with us
             </Link>
-            <Link href="/projects" className="btn btn-ghost">
-              See projects
+            <Link href="/services" className="btn btn-ghost">
+              Explore services
             </Link>
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

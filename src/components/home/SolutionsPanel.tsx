@@ -5,61 +5,58 @@ import { useState } from "react";
 import { services } from "@/data/site";
 import { asset } from "@/lib/paths";
 
-const challengeCopy: Record<string, string> = {
-  "high-voltage-electrical-systems":
-    "You need HV networks designed, installed and handed over without delays.",
-  "laboratory-center-services":
-    "You need diagnostics that catch faults before they become outages.",
-  "low-voltage-power-distribution":
-    "You need LV distribution that is safe, documented and ready for use.",
-  "low-current-and-it-systems":
-    "You need building networks, CCTV and fire systems that work as one.",
-  "uninterruptible-power-systems":
-    "You need backup power that keeps critical sites online.",
-  "automation-systems":
-    "You need energy and building automation you can trust remotely.",
-  "grounding-and-lightning-protection":
-    "You need earthing and lightning protection matched to real site risk.",
-};
-
 export function SolutionsPanel() {
   const [active, setActive] = useState(0);
-  const current = services[active];
 
   return (
-    <div className="solutions">
-      <div className="solutions__copy">
-        <p className="eyebrow">Services</p>
-        <h2>Your challenges. Our solutions.</h2>
-        <ul className="solutions__list">
-          {services.map((service, index) => (
-            <li key={service.slug}>
-              <button
-                type="button"
+    <section className="section-solutions">
+      <div className="container">
+        <div className="solutions-head">
+          <p className="eyebrow on-dark">What we do</p>
+          <h2>
+            Your challenges.{" "}
+            <span className="solutions-mark">Our solutions.</span>
+          </h2>
+          <Link href="/services" className="btn btn-on-blue">
+            View all services
+          </Link>
+        </div>
+
+        <div className="solutions-grid">
+          <div className="solutions-media" aria-hidden="true">
+            {services.map((service, index) => (
+              <img
+                key={service.slug}
+                src={asset("/hero.jpg")}
+                alt=""
                 className={index === active ? "is-active" : undefined}
-                onClick={() => setActive(index)}
-                onMouseEnter={() => setActive(index)}
-              >
-                <span className="solutions__challenge">
-                  {challengeCopy[service.slug] ?? service.short}
-                </span>
-                <span className="solutions__answer">{service.title}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <Link href={`/services/${current.slug}`} className="btn btn-orange">
-          Explore {current.title}
-        </Link>
-      </div>
-      <div className="solutions__visual">
-        <img src={asset("/hero.jpg")} alt="" />
-        <div className="solutions__caption">
-          <p className="eyebrow on-dark">Active focus</p>
-          <h3>{current.title}</h3>
-          <p>{current.short}</p>
+              />
+            ))}
+            <div className="solutions-media__label">
+              <p className="eyebrow on-dark">Active focus</p>
+              <p>{services[active].title}</p>
+            </div>
+          </div>
+
+          <ul className="solutions-list">
+            {services.map((service, index) => (
+              <li key={service.slug}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className={index === active ? "is-active" : undefined}
+                  onMouseEnter={() => setActive(index)}
+                  onFocus={() => setActive(index)}
+                >
+                  <span className="solutions-list__title">{service.title}</span>
+                  <span className="solutions-list__arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
