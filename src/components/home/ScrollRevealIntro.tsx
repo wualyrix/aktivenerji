@@ -9,12 +9,14 @@ const INTRO =
   "As demand for reliable power grows, Aktiv Enerji helps you stay ahead. From Poland and Azerbaijan, we design, build, test and maintain the critical electrical infrastructure behind industry, commercial sites and utilities.";
 
 export function ScrollRevealIntro() {
+  const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const el = textRef.current;
-    if (!el) return;
+    const section = sectionRef.current;
+    if (!el || !section) return;
 
     const words = INTRO.split(" ").map((word) => {
       const span = document.createElement("span");
@@ -32,11 +34,11 @@ export function ScrollRevealIntro() {
     const tween = gsap.to(words, {
       opacity: 1,
       ease: "none",
-      stagger: 0.08,
+      stagger: 0.06,
       scrollTrigger: {
-        trigger: el,
-        start: "top 75%",
-        end: "bottom 45%",
+        trigger: section,
+        start: "top 70%",
+        end: "center 40%",
         scrub: true,
       },
     });
@@ -48,7 +50,7 @@ export function ScrollRevealIntro() {
   }, []);
 
   return (
-    <section className="section home-intro">
+    <section ref={sectionRef} className="home-intro">
       <div className="container home-intro__inner">
         <h2 ref={textRef} className="home-intro__text">
           {INTRO}

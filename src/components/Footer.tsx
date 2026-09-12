@@ -1,19 +1,29 @@
 import Link from "next/link";
 import { nav, services, site } from "@/data/site";
+import { asset } from "@/lib/paths";
+import { SocialIcons } from "./SocialIcons";
 
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer-grid">
-          <div>
-            <h4>{site.name}</h4>
+          <div className="footer-brand">
+            <Link href="/" className="footer-logo">
+              <img
+                src={asset("/logo.png")}
+                alt={site.name}
+                width={170}
+                height={68}
+              />
+            </Link>
             <p>{site.tagline}</p>
-            <p style={{ marginTop: "1rem" }}>
+            <p className="footer-contact">
               <a href={`mailto:${site.email}`}>{site.email}</a>
               <br />
               <a href={site.phoneHref}>{site.phone}</a>
             </p>
+            <SocialIcons tone="light" />
           </div>
 
           <div>
@@ -41,8 +51,8 @@ export function Footer() {
           <div>
             <h4>Offices</h4>
             {site.offices.map((office) => (
-              <p key={office.label} style={{ marginBottom: "1rem" }}>
-                <strong style={{ color: "#fff" }}>{office.label}</strong>
+              <p key={office.label} className="footer-office">
+                <strong>{office.label}</strong>
                 <br />
                 {office.lines.map((line) => (
                   <span key={line}>
@@ -59,15 +69,7 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </span>
-          <span>
-            <a href={site.social.facebook} target="_blank" rel="noreferrer">
-              Facebook
-            </a>
-            {" · "}
-            <a href={site.social.instagram} target="_blank" rel="noreferrer">
-              Instagram
-            </a>
-          </span>
+          <SocialIcons tone="light" className="footer-bottom__social" />
         </div>
       </div>
     </footer>

@@ -75,9 +75,7 @@ export function HomeExperience() {
       </section>
 
       <section className="section-footprint">
-        <div className="container">
-          <FootprintMap />
-        </div>
+        <FootprintMap />
       </section>
 
       <section className="section">

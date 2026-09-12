@@ -13,7 +13,7 @@ const FootprintGlobe = dynamic(
 export function FootprintMap() {
   return (
     <div className="footprint">
-      <div className="footprint__intro">
+      <div className="container footprint__intro">
         <p className="eyebrow on-dark">Where we operate</p>
         <h2>International footprint</h2>
         <p>
@@ -24,7 +24,7 @@ export function FootprintMap() {
 
       <div className="footprint__stage">
         <FootprintGlobe />
-        <ul className="footprint__legend">
+        <ul className="footprint__legend container">
           <li>
             <span className="footprint__dot" />
             <div>

@@ -35,7 +35,7 @@ export function FootprintGlobe() {
     const globe: GlobeInstance = new Globe(el)
       .width(width)
       .height(height)
-      .backgroundColor("#083566")
+      .backgroundColor("#061a33")
       .globeImageUrl(
         "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg",
       )

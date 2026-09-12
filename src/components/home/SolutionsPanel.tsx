@@ -12,32 +12,17 @@ export function SolutionsPanel() {
     <section className="section-solutions">
       <div className="container">
         <div className="solutions-head">
-          <p className="eyebrow on-dark">What we do</p>
+          <p className="eyebrow">What we do</p>
           <h2>
             Your challenges.{" "}
             <span className="solutions-mark">Our solutions.</span>
           </h2>
-          <Link href="/services" className="btn btn-on-blue">
+          <Link href="/services" className="btn btn-orange">
             View all services
           </Link>
         </div>
 
         <div className="solutions-grid">
-          <div className="solutions-media" aria-hidden="true">
-            {services.map((service, index) => (
-              <img
-                key={service.slug}
-                src={asset("/hero.jpg")}
-                alt=""
-                className={index === active ? "is-active" : undefined}
-              />
-            ))}
-            <div className="solutions-media__label">
-              <p className="eyebrow on-dark">Active focus</p>
-              <p>{services[active].title}</p>
-            </div>
-          </div>
-
           <ul className="solutions-list">
             {services.map((service, index) => (
               <li key={service.slug}>
@@ -55,6 +40,21 @@ export function SolutionsPanel() {
               </li>
             ))}
           </ul>
+
+          <div className="solutions-media" aria-hidden="true">
+            {services.map((service, index) => (
+              <img
+                key={service.slug}
+                src={asset("/hero.jpg")}
+                alt=""
+                className={index === active ? "is-active" : undefined}
+              />
+            ))}
+            <div className="solutions-media__label">
+              <p className="eyebrow on-dark">Active focus</p>
+              <p>{services[active].title}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
