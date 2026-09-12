@@ -500,9 +500,9 @@ p {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(8, 53, 102, 0.28) 0%,
-    rgba(8, 53, 102, 0.5) 48%,
-    rgba(8, 53, 102, 0.78) 100%
+    rgba(8, 53, 102, 0.48) 0%,
+    rgba(8, 53, 102, 0.68) 45%,
+    rgba(8, 53, 102, 0.9) 100%
   );
 }
 
@@ -780,21 +780,22 @@ p {
 
 .footprint__map {
   position: relative;
-  width: min(100%, 680px);
+  width: min(100%, 640px);
   aspect-ratio: 1;
   height: auto;
-  min-height: 420px;
+  min-height: 360px;
   margin-inline: auto;
-  overflow: hidden;
-  background: radial-gradient(circle at center, #0c4a8c 0%, #083566 72%);
-  border-radius: 50%;
+  overflow: visible;
+  background: transparent;
   touch-action: pan-y;
 }
 
 .footprint__canvas {
   display: block;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  max-width: 100%;
 }
 
 .footprint__pins {
@@ -842,8 +843,9 @@ p {
 
 .footprint__map canvas {
   display: block;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
 }
 
 .footprint__legend {
