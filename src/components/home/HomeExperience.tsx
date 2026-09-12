@@ -2,6 +2,7 @@ import Link from "next/link";
 import { clients, projects, site } from "@/data/site";
 import { asset } from "@/lib/paths";
 import { FootprintMap } from "./FootprintMap";
+import { ScrollRevealIntro } from "./ScrollRevealIntro";
 import { SolutionsPanel } from "./SolutionsPanel";
 
 export function HomeExperience() {
@@ -32,14 +33,10 @@ export function HomeExperience() {
         </div>
       </section>
 
-      <section className="section home-intro">
+      <ScrollRevealIntro />
+
+      <section className="section home-stats">
         <div className="container">
-          <h2>
-            As demand for reliable power grows, Aktiv Enerji helps you stay
-            ahead. From Poland and Azerbaijan, we design, build, test and
-            maintain the critical electrical infrastructure behind industry,
-            commercial sites and utilities.
-          </h2>
           <div className="home-intro__stats">
             {site.stats.map((stat) => (
               <div key={stat.label}>
