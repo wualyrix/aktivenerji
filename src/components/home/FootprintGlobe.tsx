@@ -30,7 +30,7 @@ export function FootprintGlobe() {
     if (!el) return;
 
     const width = el.clientWidth || 800;
-    const height = Math.max(420, Math.min(window.innerHeight * 0.62, 620));
+    const height = Math.min(560, Math.max(420, Math.round(window.innerHeight * 0.55)));
 
     const globe: GlobeInstance = new Globe(el)
       .width(width)
@@ -79,9 +79,11 @@ export function FootprintGlobe() {
 
     const onResize = () => {
       if (!containerRef.current) return;
-      globe
-        .width(containerRef.current.clientWidth)
-        .height(Math.max(420, Math.min(window.innerHeight * 0.62, 620)));
+      const nextHeight = Math.min(
+        560,
+        Math.max(420, Math.round(window.innerHeight * 0.55)),
+      );
+      globe.width(containerRef.current.clientWidth).height(nextHeight);
     };
     window.addEventListener("resize", onResize);
 
