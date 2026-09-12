@@ -1,9 +1,19 @@
 import type { NextConfig } from "next";
 
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
   },
+  ...(isGithubPages
+    ? {
+        basePath: "/aktivenerji",
+        assetPrefix: "/aktivenerji",
+      }
+    : {}),
 };
 
 export default nextConfig;

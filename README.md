@@ -2,28 +2,28 @@
 
 Corporate website for Aktiv Enerji — electrical infrastructure design, installation, laboratory testing and maintenance.
 
+**Live site:** https://wualyrix.github.io/aktivenerji/
+
 ## Stack
 
-- Next.js 15 (App Router)
+- Next.js 15 (App Router) · static export for GitHub Pages
 - TypeScript
-- Brand system: blue for structure, orange for accents/CTAs only
+- Brand: blue for structure, orange for accents/CTAs only
 
 ## Develop
-
-If Node.js is installed globally:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Or with the portable Node already under `.tools/node`:
+Open [http://localhost:3000](http://localhost:3000).
 
-```bash
-.\.tools\node\node.exe .\node_modules\next\dist\bin\next dev -p 3001
-```
+## Deploy
 
-Open [http://localhost:3001](http://localhost:3001).
+Pushes to `main` build a static site and publish to GitHub Pages via Actions.
+
+In the repo: **Settings → Pages → Source = GitHub Actions**.
 
 ## Pages
 
