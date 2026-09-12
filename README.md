@@ -1,37 +1,22 @@
 # Aktiv Enerji
 
-Corporate website for Aktiv Enerji — electrical infrastructure design, installation, laboratory testing and maintenance.
+Corporate site — https://wualyrix.github.io/aktivenerji/
 
-**Live site:** https://wualyrix.github.io/aktivenerji/
-
-## Stack
-
-- Next.js 15 (App Router) · static export for GitHub Pages
-- TypeScript
-- Brand: blue for structure, orange for accents/CTAs only
-
-## Develop
+## Local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## Deploy (otomatik)
 
-## Deploy
+`main`'e her push → GitHub Actions build + Pages publish.
 
-Pushes to `main` build a static site and publish to GitHub Pages via Actions.
+**Tek seferlik ayar (zorunlu):**
 
-In the repo: **Settings → Pages → Source = GitHub Actions**.
+1. Repo → **Settings → Pages**
+2. **Source:** `GitHub Actions` (branch/root değil)
+3. Kaydet
 
-## Pages
-
-- `/` Home
-- `/about`
-- `/services` + `/services/[slug]`
-- `/projects`
-- `/certificates`
-- `/contact`
-
-Content: `src/data/site.ts` · Assets: `public/`
+Sonra sadece kodu değiştirip push etmen yeterli. Elle `docs/` / `index.html` kopyalamaya gerek yok.
