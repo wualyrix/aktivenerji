@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/CtaBand";
 import { services } from "@/data/site";
+import { asset } from "@/lib/paths";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -58,7 +59,15 @@ export default async function ServiceDetailPage({ params }: Props) {
               ))}
             </ul>
           </div>
-          <div className="card">
+          <div className="service-detail-media">
+            <img src={asset(service.image)} alt={service.title} />
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-soft">
+        <div className="container">
+          <div className="card" style={{ maxWidth: "40rem" }}>
             <p className="eyebrow">Delivery</p>
             <h3 style={{ marginBottom: "1rem" }}>
               From survey to documented handover
@@ -95,7 +104,9 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </div>
                 <div>
                   <strong>{title}</strong>
-                  <p style={{ color: "var(--muted)", marginTop: "0.2rem" }}>{text}</p>
+                  <p style={{ color: "var(--muted)", marginTop: "0.2rem" }}>
+                    {text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -103,7 +114,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="section section-soft">
+      <section className="section">
         <div className="container">
           <div className="section-head">
             <div>
@@ -116,8 +127,11 @@ export default async function ServiceDetailPage({ params }: Props) {
               <Link
                 key={item.slug}
                 href={`/services/${item.slug}`}
-                className="card card-link"
+                className="card card-link service-card"
               >
+                <div className="service-card__media">
+                  <img src={asset(item.image)} alt="" />
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.short}</p>
                 <div className="more">Explore service →</div>

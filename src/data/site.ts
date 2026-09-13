@@ -34,6 +34,7 @@ export type Service = {
   title: string;
   short: string;
   summary: string;
+  image: string;
   points: string[];
 };
 
@@ -44,6 +45,7 @@ export const services: Service[] = [
     short: "Design and execution from 1000 V to 6/10/35 kV.",
     summary:
       "End-to-end high-voltage work for substations, distribution and transmission assets — engineered, installed, tested and formally handed over.",
+    image: "/services/high-voltage-electrical-systems.jpg",
     points: [
       "Transformer substation construction",
       "High-voltage switchgear installation",
@@ -59,6 +61,7 @@ export const services: Service[] = [
     short: "Accredited testing and diagnostics from 0.4 kV to 35 kV.",
     summary:
       "Our in-house Laboratory Center diagnoses and tests electrical equipment across substations, plants, offices and production sites — with mobile labs and modern instrumentation.",
+    image: "/services/laboratory-center-services.jpg",
     points: [
       "Cable line testing (VLF, DC hipot)",
       "Fault location (TDR, SIM, DECAY, ICE)",
@@ -75,6 +78,7 @@ export const services: Service[] = [
     short: "Panels, lighting, busbar and LV cable systems.",
     summary:
       "Complete low-voltage distribution design and installation, verified through our laboratory and documented for safe handover.",
+    image: "/services/low-voltage-power-distribution.jpg",
     points: [
       "LV distribution panels",
       "Indoor and outdoor lighting",
@@ -90,6 +94,7 @@ export const services: Service[] = [
     short: "FO, data, CCTV, fire alarm and building networks.",
     summary:
       "Design, installation and laboratory-backed testing of low-current signal systems and information technology infrastructure.",
+    image: "/services/low-current-and-it-systems.jpg",
     points: [
       "Fire detection and alarm",
       "Telephone and data networks",
@@ -106,6 +111,7 @@ export const services: Service[] = [
     short: "Generators, UPS and resilient power for critical sites.",
     summary:
       "Design and delivery of uninterrupted power for production facilities and offices — from generators and UPS to automated transfer systems.",
+    image: "/services/uninterruptible-power-systems.jpg",
     points: [
       "Generator design and installation",
       "UPS system installation",
@@ -120,6 +126,7 @@ export const services: Service[] = [
     short: "Smart building, energy control and SCADA.",
     summary:
       "Automation, smart-home and remote-control systems with testing, documentation and registration of completed works.",
+    image: "/services/automation-systems.jpg",
     points: [
       "Smart home systems",
       "Building and lighting automation",
@@ -134,6 +141,7 @@ export const services: Service[] = [
     short: "Earthing and lightning systems designed for real soil and risk.",
     summary:
       "Soil resistivity measurement, earthing and lightning protection design, installation, official testing and documentation.",
+    image: "/services/grounding-and-lightning-protection.jpg",
     points: [
       "Lightning protection design and installation",
       "Earthing system design and installation",

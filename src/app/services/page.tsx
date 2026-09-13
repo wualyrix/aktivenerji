@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { services } from "@/data/site";
+import { asset } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -39,8 +40,11 @@ export default function ServicesPage() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="card card-link"
+              className="card card-link service-card"
             >
+              <div className="service-card__media">
+                <img src={asset(service.image)} alt="" />
+              </div>
               <h3>{service.title}</h3>
               <p>{service.summary}</p>
               <div className="more">Explore service →</div>

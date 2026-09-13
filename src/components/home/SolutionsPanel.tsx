@@ -45,7 +45,7 @@ export function SolutionsPanel() {
             {services.map((service, index) => (
               <img
                 key={service.slug}
-                src={asset("/hero.jpg")}
+                src={asset(service.image)}
                 alt=""
                 className={index === active ? "is-active" : undefined}
               />
