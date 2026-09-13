@@ -829,72 +829,18 @@ p {
 
 .footprint__map {
   position: relative;
-  width: min(100%, 640px);
+  width: min(100%, 520px);
   aspect-ratio: 1;
   height: auto;
-  min-height: 360px;
   margin-inline: auto;
   overflow: visible;
   background: transparent;
-  touch-action: pan-y;
 }
 
-.footprint__canvas {
+.footprint__globe {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
-  max-width: 100%;
-}
-
-.footprint__pins {
-  position: absolute;
-  left: 50%;
-  bottom: 1.25rem;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.75rem;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.footprint__pins span {
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(241, 90, 34, 0.95);
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.footprint__map--loading {
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at center, #0c4a8c 0%, #083566 72%);
-}
-
-.footprint__map--loading::after {
-  content: "Loading globe…";
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 600;
-}
-
-.footprint__map--fallback {
-  display: grid;
-  place-content: center;
-  gap: 0.5rem;
-  text-align: center;
-  font-family: var(--display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.footprint__map canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
 }
 
 .footprint__legend {
