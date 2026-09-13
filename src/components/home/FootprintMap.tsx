@@ -1,4 +1,14 @@
-import { FootprintGlobe } from "./FootprintGlobe";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const FootprintGlobe = dynamic(
+  () => import("./FootprintGlobe").then((mod) => mod.FootprintGlobe),
+  {
+    ssr: false,
+    loading: () => <div className="footprint__map footprint__map--loading" />,
+  },
+);
 
 export function FootprintMap() {
   return (
