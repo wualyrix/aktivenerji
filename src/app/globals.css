@@ -12,8 +12,8 @@
   --radius: 10px;
   --shadow: 0 18px 50px rgba(8, 53, 102, 0.14);
   --container: 1120px;
-  --font: "Manrope", system-ui, sans-serif;
-  --display: "Sora", system-ui, sans-serif;
+  --font: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --display: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
 }
 
 * {
@@ -74,8 +74,9 @@ h1,
 h2,
 h3 {
   font-family: var(--display);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -234,6 +235,56 @@ p {
 
 .card-link:hover .more {
   color: var(--orange);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-card:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow);
+}
+
+.cert-card-media {
+  aspect-ratio: 3 / 4;
+  background: var(--off);
+  overflow: hidden;
+}
+
+.cert-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.cert-card-body {
+  padding: 1.1rem 1.2rem 1.25rem;
+}
+
+.cert-card-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.cert-card-body p:last-child {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0;
 }
 
 .service-card {
@@ -1177,6 +1228,7 @@ p {
 
 @media (max-width: 960px) {
   .grid-3,
+  .cert-grid,
   .footer-grid,
   .contact-grid,
   .home-intro__stats,
@@ -1223,6 +1275,7 @@ p {
 
   .grid-3,
   .grid-2,
+  .cert-grid,
   .footer-grid,
   .contact-grid,
   .home-intro__stats,

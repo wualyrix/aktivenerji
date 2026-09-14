@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Manrope, Sora } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const manrope = Manrope({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-manrope",
-});
-
-const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-sora",
+  variable: "--font-source",
 });
 
 export const metadata: Metadata = {
@@ -30,11 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${sora.variable}`}>
+      <body className={sourceSans.variable}>
         <style>{`
           :root {
-            --font: var(--font-manrope), system-ui, sans-serif;
-            --display: var(--font-sora), system-ui, sans-serif;
+            --font: var(--font-source), "Segoe UI", system-ui, sans-serif;
+            --display: var(--font-source), "Segoe UI", system-ui, sans-serif;
           }
         `}</style>
         <Header />

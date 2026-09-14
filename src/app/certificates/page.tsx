@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { certificates } from "@/data/site";
+import { asset } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Certificates",
@@ -30,16 +31,25 @@ export default function CertificatesPage() {
       </section>
 
       <section className="section">
-        <div className="container grid-3">
+        <div className="container cert-grid">
           {certificates.map((item) => (
-            <div className="card" key={item}>
-              <p className="eyebrow">Credential</p>
-              <h3>{item}</h3>
-              <p>
-                Part of Aktiv Enerji’s quality framework for field work,
-                laboratory testing and installer competence.
-              </p>
-            </div>
+            <a
+              key={item.image}
+              className="cert-card"
+              href={asset(item.image)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="cert-card-media">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={asset(item.image)} alt={item.title} loading="lazy" />
+              </div>
+              <div className="cert-card-body">
+                <p className="eyebrow">{item.category}</p>
+                <h3>{item.title}</h3>
+                <p>{item.summary}</p>
+              </div>
+            </a>
           ))}
         </div>
       </section>

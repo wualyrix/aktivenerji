@@ -25,7 +25,7 @@ export function HomeExperience() {
             Built With You.
           </h1>
           <div className="actions">
-            <Link href="/services" className="btn btn-white">
+            <Link href="/services" className="btn btn-orange">
               What we do
             </Link>
             <Link href="/contact" className="btn btn-ghost">

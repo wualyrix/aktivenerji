@@ -89,8 +89,8 @@ export default function AboutPage() {
           </div>
           <div className="clients">
             {certificates.map((item) => (
-              <span className="client-pill" key={item}>
-                {item}
+              <span className="client-pill" key={item.image}>
+                {item.title}
               </span>
             ))}
           </div>

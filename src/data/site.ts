@@ -216,14 +216,112 @@ export const projects: Project[] = [
   },
 ];
 
-export const certificates = [
-  "Azerbaijan Ministry of Economy License",
-  "Occupational Health & Safety",
-  "Safe Work & Mining Supervision",
-  "IVP and Installer Training",
-  "Sonel Training",
-  "Accreditation Attestation",
-  "Calibration Certificates",
+export type Certificate = {
+  title: string;
+  summary: string;
+  category: string;
+  image: string;
+};
+
+export const certificates: Certificate[] = [
+  {
+    title: "Ministry of Economy — Construction License",
+    summary: "License for construction and installation works requiring permits.",
+    category: "License",
+    image: "/certificates/license-construction.jpg",
+  },
+  {
+    title: "Ministry of Economy — Design License",
+    summary: "Authorization for design of buildings and installations.",
+    category: "License",
+    image: "/certificates/license-design.jpg",
+  },
+  {
+    title: "Ministry of Economy — Diagnostics License",
+    summary:
+      "Diagnostics and technical inspection at high-potential facilities.",
+    category: "License",
+    image: "/certificates/license-diagnostics.jpg",
+  },
+  {
+    title: "Trademark Registration",
+    summary: "Official Aktiv Enerji trademark certificate (class 37).",
+    category: "Trademark",
+    image: "/certificates/trademark.jpg",
+  },
+  {
+    title: "Accreditation Attestation — ISO/IEC 17025",
+    summary: "Testing laboratory accreditation by Azerbaijan Accreditation Center.",
+    category: "Accreditation",
+    image: "/certificates/accreditation.jpg",
+  },
+  {
+    title: "Occupational Health & Safety",
+    summary: "AZERICERT training on labor protection and safety technique.",
+    category: "Training",
+    image: "/certificates/ohs-azericert.jpg",
+  },
+  {
+    title: "Safe Work & Mining Supervision",
+    summary:
+      "Industrial safety training under the Ministry of Emergency Situations.",
+    category: "Training",
+    image: "/certificates/safe-work-mining.jpg",
+  },
+  {
+    title: "IVP & Installer Training",
+    summary: "IndigoVision IVP & Installer Training certificate of completion.",
+    category: "Training",
+    image: "/certificates/training-ivp.jpg",
+  },
+  {
+    title: "Sonel MPI-540-PV Training",
+    summary: "Operation of Sonel MPI-540-PV — Sonel S.A. training certificate.",
+    category: "Training",
+    image: "/certificates/training-sonel.jpg",
+  },
+  {
+    title: "Calibration — Fluke 1621",
+    summary: "Earth ground tester calibration by Libra Calibration Center.",
+    category: "Calibration",
+    image: "/certificates/cal-fluke-1621.jpg",
+  },
+  {
+    title: "Calibration — Fluke VT04",
+    summary: "Infrared visual camera calibration by Libra Calibration Center.",
+    category: "Calibration",
+    image: "/certificates/cal-fluke-vt04.jpg",
+  },
+  {
+    title: "Calibration — Fluke 1587",
+    summary: "Multimeter calibration by Azerbaijan Metrology Institute.",
+    category: "Calibration",
+    image: "/certificates/cal-fluke-1587.jpg",
+  },
+  {
+    title: "Calibration — AII-70",
+    summary: "Voltage transformer calibration by Azerbaijan Metrology Institute.",
+    category: "Calibration",
+    image: "/certificates/cal-aii-70.jpg",
+  },
+  {
+    title: "Calibration — Megger BM",
+    summary: "Digital insulation tester calibration by Azerbaijan Metrology Institute.",
+    category: "Calibration",
+    image: "/certificates/cal-megger-bm.jpg",
+  },
+  {
+    title: "Calibration — Microohmmeter AMTJ-2516C",
+    summary: "Microohmmeter calibration by Azerbaijan Metrology Institute.",
+    category: "Calibration",
+    image: "/certificates/cal-mikroohmmeter.jpg",
+  },
+  {
+    title: "Calibration — Sonel MPI-540",
+    summary: "Multifunctional tester calibration by Azerbaijan Metrology Institute.",
+    category: "Calibration",
+    image: "/certificates/cal-sonel-mpi540.jpg",
+  },
 ];
 
 export const nav = [

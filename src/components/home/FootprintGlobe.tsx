@@ -124,9 +124,16 @@ export function FootprintGlobe() {
           );
           const shade = 0.72 + 0.28 * z;
           const light = 0.88 + 0.18 * z;
-          out.data[i] = Math.min(255, R * shade * light);
-          out.data[i + 1] = Math.min(255, G * shade * light);
-          out.data[i + 2] = Math.min(255, B * shade * light);
+          // Brand-blue color grade so the globe matches site tones
+          let rC = Math.min(255, R * shade * light);
+          let gC = Math.min(255, G * shade * light);
+          let bC = Math.min(255, B * shade * light);
+          rC = rC * 0.55 + 12 * 0.45;
+          gC = gC * 0.55 + 74 * 0.45;
+          bC = bC * 0.45 + 140 * 0.55;
+          out.data[i] = Math.min(255, rC);
+          out.data[i + 1] = Math.min(255, gC);
+          out.data[i + 2] = Math.min(255, bC);
           out.data[i + 3] = 255;
         }
       }
