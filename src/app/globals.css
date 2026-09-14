@@ -1087,7 +1087,7 @@ p {
 .clients-marquee__track {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   width: max-content;
   padding: 1.25rem 0 1.75rem;
   animation: clients-scroll 42s linear infinite;
@@ -1101,9 +1101,9 @@ p {
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  width: 160px;
-  height: 72px;
-  padding: 0.65rem 1rem;
+  width: 210px;
+  height: 96px;
+  padding: 0.85rem 1.25rem;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--white);
@@ -1111,7 +1111,7 @@ p {
 
 .clients-marquee__item img {
   max-width: 100%;
-  max-height: 44px;
+  max-height: 58px;
   width: auto;
   height: auto;
   object-fit: contain;
