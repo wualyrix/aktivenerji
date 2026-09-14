@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { clients, projects } from "@/data/site";
+import { projects } from "@/data/site";
 import { asset } from "@/lib/paths";
 import { ClientErrorBoundary } from "@/components/ClientErrorBoundary";
+import { ClientsMarquee } from "./ClientsMarquee";
 import { FootprintMap } from "./FootprintMap";
 import { ScrollRevealIntro } from "./ScrollRevealIntro";
 import { SolutionsPanel } from "./SolutionsPanel";
@@ -97,23 +98,7 @@ export function HomeExperience() {
         <FootprintMap />
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Clients</p>
-              <h2>Trusted across energy, telecom and retail.</h2>
-            </div>
-          </div>
-          <div className="clients">
-            {clients.map((client) => (
-              <span className="client-pill" key={client}>
-                {client}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ClientsMarquee />
 
       <section className="home-cta">
         <div className="home-cta__fade" aria-hidden="true" />

@@ -216,21 +216,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const clients = [
-  "Azercell",
-  "Bakcell",
-  "SOCAR",
-  "LUKOIL",
-  "Azercosmos",
-  "McDonald's",
-  "Coca-Cola",
-  "Ferrari Center",
-  "Port Baku Mall",
-  "ASG Aviation",
-  "Rabitebank",
-  "Technol",
-];
-
 export const certificates = [
   "Azerbaijan Ministry of Economy License",
   "Occupational Health & Safety",

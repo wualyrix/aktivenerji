@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" role="img" aria-label="Port Baku Walk">
+  <path d="M70 28 V14 H78 V28 H86 V10 H94 V28 H102 V16 H110 V32" fill="none" stroke="#0c4a8c" stroke-width="2"/>
+  <path d="M66 34 Q110 40 154 34" fill="none" stroke="#0c4a8c" stroke-width="1.5"/>
+  <path d="M70 38 Q110 44 150 38" fill="none" stroke="#0c4a8c" stroke-width="1.5"/>
+  <text x="110" y="58" text-anchor="middle" fill="#0c4a8c" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="2">PORT BAKU</text>
+  <text x="110" y="72" text-anchor="middle" fill="#0c4a8c" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="3">WALK</text>
+</svg>

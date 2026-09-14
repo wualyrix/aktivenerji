@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" role="img" aria-label="Azertexnolayn">
+  <circle cx="130" cy="28" r="18" fill="none" stroke="#0c4a8c" stroke-width="3"/>
+  <circle cx="130" cy="28" r="11" fill="none" stroke="#0c4a8c" stroke-width="2"/>
+  <rect x="118" y="10" width="24" height="10" rx="1" fill="#0c4a8c"/>
+  <rect x="126" y="4" width="8" height="8" fill="#0c4a8c"/>
+  <text x="130" y="28" text-anchor="middle" dominant-baseline="middle" fill="#0c4a8c" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="800">ATL</text>
+  <text x="130" y="66" text-anchor="middle" fill="#0c4a8c" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" letter-spacing="1.5">AZERTEXNOLAYN</text>
+</svg>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 72" role="img" aria-label="Azza Gastronom">
+  <rect width="200" height="72" rx="4" fill="#4a2c0a"/>
+  <rect x="88" y="8" width="24" height="12" rx="2" fill="#d4a017"/>
+  <text x="100" y="42" text-anchor="middle" fill="#d4a017" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">azza</text>
+  <line x1="56" y1="50" x2="144" y2="50" stroke="#d4a017" stroke-width="1"/>
+  <text x="100" y="62" text-anchor="middle" fill="#d4a017" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="600" letter-spacing="2">GASTRONOM</text>
+</svg>
