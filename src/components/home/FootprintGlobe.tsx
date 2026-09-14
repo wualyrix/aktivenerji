@@ -133,23 +133,109 @@ export function FootprintGlobe() {
 
       wctx.putImageData(out, 0, 0);
 
-      // Markers on work canvas
-      const markerScale = renderSize / css;
+      // Markers + callout labels on the globe
+      const s = renderSize / css;
+      const labels: {
+        name: string;
+        px: number;
+        py: number;
+        lx: number;
+        ly: number;
+        align: CanvasTextAlign;
+      }[] = [];
+
       for (const m of MARKERS) {
         const p = project(m.lat, m.lon, cx, cy, r);
         if (!p) continue;
+
         wctx.beginPath();
-        wctx.arc(p.x, p.y, 9 * markerScale, 0, Math.PI * 2);
+        wctx.arc(p.x, p.y, 10 * s, 0, Math.PI * 2);
         wctx.fillStyle = "rgba(241,90,34,0.28)";
         wctx.fill();
         wctx.beginPath();
-        wctx.arc(p.x, p.y, 4.5 * markerScale, 0, Math.PI * 2);
+        wctx.arc(p.x, p.y, 5 * s, 0, Math.PI * 2);
         wctx.fillStyle = "#f15a22";
         wctx.fill();
         wctx.beginPath();
-        wctx.arc(p.x, p.y, 1.8 * markerScale, 0, Math.PI * 2);
+        wctx.arc(p.x, p.y, 2 * s, 0, Math.PI * 2);
         wctx.fillStyle = "#fff";
         wctx.fill();
+
+        if (m.name === "Poland") {
+          labels.push({
+            name: m.name,
+            px: p.x,
+            py: p.y,
+            lx: p.x - 18 * s,
+            ly: p.y - 42 * s,
+            align: "right",
+          });
+        } else {
+          labels.push({
+            name: m.name,
+            px: p.x,
+            py: p.y,
+            lx: p.x + 18 * s,
+            ly: p.y - 42 * s,
+            align: "left",
+          });
+        }
+      }
+
+      wctx.font = `700 ${Math.round(13 * s)}px Arial, Helvetica, sans-serif`;
+      wctx.textBaseline = "middle";
+
+      for (const label of labels) {
+        const elbowX = label.lx;
+        const elbowY = label.py - 18 * s;
+
+        wctx.beginPath();
+        wctx.moveTo(label.px, label.py);
+        wctx.lineTo(elbowX, elbowY);
+        wctx.lineTo(label.lx, label.ly);
+        wctx.strokeStyle = "rgba(255,255,255,0.92)";
+        wctx.lineWidth = Math.max(1.5, 1.6 * s);
+        wctx.lineJoin = "round";
+        wctx.lineCap = "round";
+        wctx.stroke();
+
+        wctx.beginPath();
+        wctx.moveTo(label.px, label.py);
+        wctx.lineTo(elbowX, elbowY);
+        wctx.lineTo(label.lx, label.ly);
+        wctx.strokeStyle = "#f15a22";
+        wctx.lineWidth = Math.max(1, 1.1 * s);
+        wctx.stroke();
+
+        wctx.textAlign = label.align;
+        const padX = 8 * s;
+        const textW = wctx.measureText(label.name).width;
+        const boxW = textW + padX * 2;
+        const boxH = 22 * s;
+        const boxX =
+          label.align === "right" ? label.lx - boxW : label.lx;
+        const boxY = label.ly - boxH / 2;
+
+        wctx.fillStyle = "rgba(8, 53, 102, 0.92)";
+        wctx.strokeStyle = "rgba(255,255,255,0.25)";
+        wctx.lineWidth = 1;
+        const rr = 11 * s;
+        wctx.beginPath();
+        wctx.moveTo(boxX + rr, boxY);
+        wctx.arcTo(boxX + boxW, boxY, boxX + boxW, boxY + boxH, rr);
+        wctx.arcTo(boxX + boxW, boxY + boxH, boxX, boxY + boxH, rr);
+        wctx.arcTo(boxX, boxY + boxH, boxX, boxY, rr);
+        wctx.arcTo(boxX, boxY, boxX + boxW, boxY, rr);
+        wctx.closePath();
+        wctx.fill();
+        wctx.stroke();
+
+        wctx.fillStyle = "#fff";
+        wctx.fillText(
+          label.name,
+          label.align === "right" ? label.lx - padX : label.lx + padX,
+          label.ly,
+        );
       }
 
       ctx.clearRect(0, 0, display, display);
@@ -181,10 +267,6 @@ export function FootprintGlobe() {
           className="footprint__canvas"
           aria-label="Earth globe showing Poland and Azerbaijan"
         />
-      </div>
-      <div className="footprint__pins" aria-hidden="true">
-        <span>Poland</span>
-        <span>Azerbaijan</span>
       </div>
     </div>
   );

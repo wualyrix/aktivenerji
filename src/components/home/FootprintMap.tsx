@@ -24,22 +24,6 @@ export function FootprintMap() {
 
       <div className="footprint__stage">
         <FootprintGlobe />
-        <ul className="footprint__legend container">
-          <li>
-            <span className="footprint__dot" />
-            <div>
-              <strong>Poland</strong>
-              <span>Warsaw - European center</span>
-            </div>
-          </li>
-          <li>
-            <span className="footprint__dot" />
-            <div>
-              <strong>Azerbaijan</strong>
-              <span>Baku - Regional operations</span>
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
   );
